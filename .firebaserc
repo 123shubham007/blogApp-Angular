@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "blogapp-8f27e": {
+      "hosting": {
+        "blogApp": [
+          "blogapp-8f27e"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "blogapp-8f27e"
+  }
+}

@@ -1,0 +1,8 @@
+.card-img {
+    height: 500px;
+    object-fit: contain;
+}
+
+p {
+    overflow: auto;
+}

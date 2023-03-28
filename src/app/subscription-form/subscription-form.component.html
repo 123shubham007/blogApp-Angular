@@ -1,0 +1,41 @@
+<div class="card shadow-effect">
+    <div class="card-body">
+        <div class="text-center mt-3 mb-5">
+            <h3>SUBSCRIPTION FORM</h3>
+            <p class="m-auto subs-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla voluptatum illum
+                debitis aperiam sunt expedita at pariatur voluptas quam? Repudiandae porro corrupti itaque dicta ipsum
+                illum autem rem veritatis quos.</p>
+
+            <div class="alert alert-danger mt-3" *ngIf="isErrorEmail">
+                Email is alredy in use
+            </div>
+
+            <div class="alert alert-success mt-3" *ngIf="isSubscribed">
+                Thank You for subscribing to our newsletter service. Stay tuned for Awesome Blogs Posts...
+            </div>
+
+            <form class="row my-5" #subForm="ngForm" (ngSubmit)="onSubmit(subForm.value)" *ngIf="!isSubscribed">
+                <div class="form-group col-md-5">
+                    <input type="text" class="form-control" placeholder="Your Name" name="name" #Name="ngModel" required
+                        ngModel [ngClass]="{'is-invalid':Name.touched && Name.invalid}">
+
+                    <div class="text-danger" *ngIf="Name.touched && Name.invalid">
+                        <div *ngIf='Name.errors?.required'>Name is required</div>
+                    </div>
+                </div>
+                <div class="form-group col-md-5">
+                    <input type="email" class="form-control" placeholder="Email Address" name="email" #Email="ngModel"
+                        ngModel required email [ngClass]="{'is-invalid':Email.touched && Email.invalid}">
+
+                    <div class="text-danger" *ngIf="Email.touched && Email.invalid">
+                        <div *ngIf='Email.errors?.required'>Email is required</div>
+                        <div *ngIf='Email.errors?.email'>Email is required</div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <button class="btn btn-info btn-block btn-theme" [disabled]="subForm.invalid">SUBSCRIBE</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
